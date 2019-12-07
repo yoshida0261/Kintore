@@ -1,23 +1,36 @@
 package com.stah.kintore
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    val recycleerView = findViewById<RecyclerView>(R.id.recyclerView)
+    //val adapter = WordListAdapter(this, )
+
+    lateinit var adapter: WordListAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        val wordList = listOf<String>("a", "b", "c")
+        adapter = WordListAdapter(this, wordList);
+// Connect the adapter with the RecyclerView.
+        recycleerView.setAdapter(adapter);
+// Give the RecyclerView a default layout manager.
+        recycleerView.setLayoutManager(LinearLayoutManager(this));
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+                .setAction("Action", null).show()
         }
     }
 

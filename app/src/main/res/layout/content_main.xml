@@ -19,6 +19,7 @@
         app:navGraph="@navigation/nav_graph" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="50dp"
         android:layout_height="193dp"
         android:layout_marginStart="1dp"
