@@ -15,14 +15,14 @@ class WordListAdapter(context: Context, list: List<String>) :
 
     val wordList = list
 
-    class WordViewHolder(itemView: View, val adapter: WordListAdapter) :
+    class WordViewHolder(itemView: View, adapter: WordListAdapter) :
         RecyclerView.ViewHolder(itemView) {
 
-        lateinit var wordView: TextView
-        lateinit var adapterList: WordListAdapter
+        var wordView: TextView
+        var adapterList: WordListAdapter
 
         init {
-            wordView = itemView.findViewById<TextView>(R.id.word)
+            wordView = itemView.findViewById(R.id.word)
             adapterList = adapter
         }
 
@@ -42,8 +42,8 @@ class WordListAdapter(context: Context, list: List<String>) :
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
 
-        val mCurrent = wordList.get(position);
-        holder.wordView.setText(mCurrent);
+        val current = wordList[position]
+        holder.wordView.text = current
 
     }
 
