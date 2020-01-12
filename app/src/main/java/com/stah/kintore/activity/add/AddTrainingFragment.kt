@@ -1,4 +1,4 @@
-package com.stah.kintore.activity
+package com.stah.kintore.activity.add
 
 import android.os.Bundle
 import android.view.LayoutInflater
